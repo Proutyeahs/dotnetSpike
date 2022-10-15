@@ -1,6 +1,6 @@
 namespace dotnetSpike.Models
 {
-    [JsonConverter(typeof(JsonStringEnumConverter))]
+    // [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum MonsterType
     {
         Earth = 1,
