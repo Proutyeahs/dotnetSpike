@@ -12,7 +12,8 @@ namespace dotnetSpike.Models
     {
         private static Monsters fire = new Monsters();
 
-        public IActionResult Get()
+        [HttpGet]
+        public ActionResult<Monsters> Get()
         {
             return Ok(fire);
         }
