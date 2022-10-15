@@ -18,9 +18,16 @@ namespace dotnetSpike.Controllers
         private static Monsters fire = new Monsters();
 
         [HttpGet]
+        [HttpGet("GetAll")]
         public ActionResult<List<Monsters>> Get()
         {
             return Ok(monsters);
+        }
+
+        [HttpGet]
+        public ActionResult<Monsters> GetSingle()
+        {
+            return Ok(monsters[0]);
         }
 
         // [HttpPost]
