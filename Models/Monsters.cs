@@ -15,8 +15,8 @@ namespace dotnetSpike.Models
 
         public int Attack {get; set;} = 10;
 
-        public int Defence {get; set;} = 10;
+        public int Defense {get; set;} = 10;
         
-        // public MonsterType class {get; set;} = MonsterType.fire
+        public MonsterType Class {get; set;} = MonsterType.Fire;
     }
 }
