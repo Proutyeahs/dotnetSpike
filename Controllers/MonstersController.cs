@@ -30,11 +30,11 @@ namespace dotnetSpike.Controllers
             return Ok(monsters.FirstOrDefault(m => m.Id == id));
         }
 
-        // [HttpPost]
-        // public ActionResult<List<Monsters>> AddMonster(Monsters newMonster)
-        // {
-        //     monsters.Add(newMonster);
-        //     return Ok(monsters);
-        // }
+        [HttpPost]
+        public ActionResult<List<Monsters>> AddMonster(Monsters newMonster)
+        {
+            monsters.Add(newMonster);
+            return Ok(monsters);
+        }
     }
 }
