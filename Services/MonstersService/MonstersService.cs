@@ -12,18 +12,18 @@ namespace dotnetSpike.Services.MonstersService
             new Monsters {Id = 1, Name = "Tom"}
         };
 
-        public List<Monsters> AddMonsters(Monsters newMonsters)
+        public async Task<List<Monsters>> AddMonsters(Monsters newMonsters)
         {
             monsters.Add(newMonsters);
             return monsters;
         }
 
-        public List<Monsters> GetAllMonsters()
+        public async Task<List<Monsters>> GetAllMonsters()
         {
             return monsters;
         }
 
-        public Monsters GetSingle(int id)
+        public async Task<Monsters> GetSingle(int id)
         {
             return monsters.FirstOrDefault(m => m.Id == id);
         }
