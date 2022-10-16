@@ -11,6 +11,7 @@ namespace dotnetSpike
     {
         public AutoMapperProfile(){
             CreateMap<Monsters, GetMonstersDto>();
+            CreateMap<AddMonstersDto, Monsters>();
         }
     }
 }
