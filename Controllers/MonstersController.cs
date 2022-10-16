@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using dotnetSpike.Services.MonstersService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotnetSpike.Controllers
@@ -10,31 +11,31 @@ namespace dotnetSpike.Controllers
     [Route("api/[controller]")]
     public class MonstersController : ControllerBase
     {
+        private readonly IMonstersService _monstersService;
+        public MonstersController(IMonstersService monstersService)
+        {
+            _monstersService = monstersService;
+        }
 
-        private static List<Monsters> monsters = new List<Monsters> {
-            new Monsters(),
-            new Monsters {Id = 1, Name = "Tom"}
-        };
-        private static Monsters fire = new Monsters();
-
+        // private static Monsters fire = new Monsters();
         
         [HttpGet("GetAll")]
-        public ActionResult<List<Monsters>> Get()
+        public ActionResult<List<Monsters>> GetAllMonsters()
         {
-            return Ok(monsters);
+            return Ok(_monstersService.GetAllMonsters());
         }
 
         [HttpGet("{id}")]
         public ActionResult<Monsters> GetSingle(int id)
         {
-            return Ok(monsters.FirstOrDefault(m => m.Id == id));
+            return Ok(_monstersService.GetSingle(id));
         }
 
         [HttpPost]
-        public ActionResult<List<Monsters>> AddMonster(Monsters newMonster)
+        public ActionResult<List<Monsters>> AddMonsters(Monsters newMonsters)
         {
-            monsters.Add(newMonster);
-            return Ok(monsters);
+            // monsters.Add(newMonster);
+            return Ok(_monstersService.AddMonsters(newMonsters));
         }
     }
 }

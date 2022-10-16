@@ -1,10 +1,12 @@
 global using dotnetSpike.Models;
+using dotnetSpike.Services.MonstersService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IMonstersService, MonstersService>();
 
 var app = builder.Build();
 
