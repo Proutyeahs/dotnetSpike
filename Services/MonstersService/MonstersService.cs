@@ -12,20 +12,25 @@ namespace dotnetSpike.Services.MonstersService
             new Monsters {Id = 1, Name = "Tom"}
         };
 
-        public async Task<List<Monsters>> AddMonsters(Monsters newMonsters)
+        public async Task<ServiceResponse<List<Monsters>>> AddMonsters(Monsters newMonsters)
         {
+            var serviceResponse = new ServiceResponse<List<Monsters>>();
             monsters.Add(newMonsters);
-            return monsters;
+            serviceResponse.Data = monsters;
+            return serviceResponse;
         }
 
-        public async Task<List<Monsters>> GetAllMonsters()
+        public async Task<ServiceResponse<List<Monsters>>> GetAllMonsters()
         {
-            return monsters;
+            return new ServiceResponse<List<Monsters>> {Data = monsters};
         }
 
-        public async Task<Monsters> GetSingle(int id)
+        public async Task<ServiceResponse<Monsters>> GetSingle(int id)
         {
-            return monsters.FirstOrDefault(m => m.Id == id);
+            var serviceResponse = new ServiceResponse<Monsters>();
+            var monsters = monsters.FirstOrDefault(m => m.Id == id);
+            serviceResponse.Data = monsters;
+            return serviceResponse;
         }
     }
 }

@@ -7,8 +7,8 @@ namespace dotnetSpike.Services.MonstersService
 {
     public interface IMonstersService
     {
-       Task<List<Monsters>> GetAllMonsters();
-        Task<Monsters> GetSingle(int id);
-        Task<List<Monsters>> AddMonsters(Monsters newMonsters);
+       Task<ServiceResponse<List<Monsters>>> GetAllMonsters();
+        Task<ServiceResponse<Monsters>> GetSingle(int id);
+        Task<ServiceResponse<List<Monsters>>> AddMonsters(Monsters newMonsters);
     }
 }
