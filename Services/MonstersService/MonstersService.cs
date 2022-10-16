@@ -28,8 +28,8 @@ namespace dotnetSpike.Services.MonstersService
         public async Task<ServiceResponse<Monsters>> GetSingle(int id)
         {
             var serviceResponse = new ServiceResponse<Monsters>();
-            var monsters = monsters.FirstOrDefault(m => m.Id == id);
-            serviceResponse.Data = monsters;
+            var monster = monsters.FirstOrDefault(m => m.Id == id);
+            serviceResponse.Data = monster;
             return serviceResponse;
         }
     }

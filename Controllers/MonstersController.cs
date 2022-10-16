@@ -20,19 +20,19 @@ namespace dotnetSpike.Controllers
         // private static Monsters fire = new Monsters();
         
         [HttpGet("GetAll")]
-        public async Task<ActionResult<SeviceResponse<List<Monsters>>>> GetAllMonsters()
+        public async Task<ActionResult<ServiceResponse<List<Monsters>>>> GetAllMonsters()
         {
             return Ok(await _monstersService.GetAllMonsters());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<SeviceResponse<Monsters>>> GetSingle(int id)
+        public async Task<ActionResult<ServiceResponse<Monsters>>> GetSingle(int id)
         {
             return Ok(await _monstersService.GetSingle(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<SeviceResponse<List<Monsters>>>> AddMonsters(Monsters newMonsters)
+        public async Task<ActionResult<ServiceResponse<List<Monsters>>>> AddMonsters(Monsters newMonsters)
         {
             // monsters.Add(newMonster);
             return Ok( await _monstersService.AddMonsters(newMonsters));
