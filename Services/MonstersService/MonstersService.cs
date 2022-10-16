@@ -14,14 +14,6 @@ namespace dotnetSpike.Services.MonstersService
             new Monsters {Id = 1, Name = "Tom"}
         };
 
-        public async Task<ServiceResponse<List<GetMonstersDto>>> AddMonsters(AddMonstersDto newMonsters)
-        {
-            var serviceResponse = new ServiceResponse<List<GetMonstersDto>>();
-            monsters.Add(_mapper.Map<Monsters>(newMonsters));
-            serviceResponse.Data = monsters.Select(c => _mapper.Map<GetMonstersDto>(c)).ToList();
-            return serviceResponse;
-        }
-
         private readonly IMapper _mapper;
 
         public MonstersService(IMapper mapper)
@@ -29,9 +21,17 @@ namespace dotnetSpike.Services.MonstersService
             _mapper = mapper;
         }
 
+        public async Task<ServiceResponse<List<GetMonstersDto>>> AddMonsters(AddMonstersDto newMonsters)
+        {
+            var serviceResponse = new ServiceResponse<List<GetMonstersDto>>();
+            monsters.Add(_mapper.Map<Monsters>(newMonsters));
+            serviceResponse.Data = monsters.Select(m => _mapper.Map<GetMonstersDto>(m)).ToList();
+            return serviceResponse;
+        }
+
         public async Task<ServiceResponse<List<GetMonstersDto>>> GetAllMonsters()
         {
-            return new ServiceResponse<List<GetMonstersDto>> {Data = monsters.Select(c => _mapper.Map<GetMonstersDto>(c)).ToList()};
+            return new ServiceResponse<List<GetMonstersDto>> {Data = monsters.Select(m => _mapper.Map<GetMonstersDto>(m)).ToList()};
         }
 
         public async Task<ServiceResponse<GetMonstersDto>> GetSingle(int id)
