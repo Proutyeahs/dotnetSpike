@@ -9,7 +9,8 @@ namespace dotnetSpike
 {
     public class AutoMapperProfile : Profile
     {
-        public AutoMapperProfile(){
+        public AutoMapperProfile()
+        {
             CreateMap<Monsters, GetMonstersDto>();
             CreateMap<AddMonstersDto, Monsters>();
         }
