@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using dotnetSpike.Services.MonstersService;
 using Microsoft.AspNetCore.Mvc;
+using dotnetSpike.Dtos.Monsters;
 
 namespace dotnetSpike.Controllers
 {
@@ -20,19 +21,19 @@ namespace dotnetSpike.Controllers
         // private static Monsters fire = new Monsters();
         
         [HttpGet("GetAll")]
-        public async Task<ActionResult<ServiceResponse<List<Monsters>>>> GetAllMonsters()
+        public async Task<ActionResult<ServiceResponse<List<GetMonstersDto>>>> GetAllMonsters()
         {
             return Ok(await _monstersService.GetAllMonsters());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<Monsters>>> GetSingle(int id)
+        public async Task<ActionResult<ServiceResponse<GetMonstersDto>>> GetSingle(int id)
         {
             return Ok(await _monstersService.GetSingle(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<List<Monsters>>>> AddMonsters(Monsters newMonsters)
+        public async Task<ActionResult<ServiceResponse<List<GetMonstersDto>>>> AddMonsters(AddMonstersDto newMonsters)
         {
             // monsters.Add(newMonster);
             return Ok( await _monstersService.AddMonsters(newMonsters));
