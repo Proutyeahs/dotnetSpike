@@ -18,10 +18,10 @@ namespace dotnetSpike.Services.MonstersService
 
         private readonly IMapper _mapper;
 
-       public MonstersService(IMapper mapper)
-       {
-        _mapper = mapper;
-       }
+        public MonstersService(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
 
         public async Task<ServiceResponse<List<GetMonstersDto>>> AddMonsters(AddMonstersDto newMonsters)
         {
