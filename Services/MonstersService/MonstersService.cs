@@ -10,7 +10,8 @@ namespace dotnetSpike.Services.MonstersService
 {
     public class MonstersService : IMonstersService
     {
-        private static List<Monsters> monsters = new List<Monsters> {
+        private static List<Monsters> monsters = new List<Monsters> 
+        {
             new Monsters(),
             new Monsters {Id = 1, Name = "Tom"}
         };
